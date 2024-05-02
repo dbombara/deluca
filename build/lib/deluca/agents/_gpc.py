@@ -52,7 +52,7 @@ class GPC(Agent):
         cost_fn: Callable[[jnp.ndarray, jnp.ndarray], Real] = None,
         H: int = 3,
         HH: int = 2,
-        lr_scale: Real = 0.00005,
+        lr_scale: Real = 0.005,
         decay: bool = True,
     ) -> None:
         """
@@ -176,6 +176,4 @@ class GPC(Agent):
         Returns:
             jnp.ndarray
         """
-        return -self.K @ state + jnp.tensordot(self.M, self.last_h_noises(), axes=([0, 2], [0, 1])), jnp.tensordot(self.M, self.last_h_noises(), axes=([0, 2], [0, 1]))
-        #return -self.K @ state, jnp.tensordot(self.M, self.last_h_noises(), axes=([0, 2], [0, 1])) 
- 
+        return -self.K @ state + jnp.tensordot(self.M, self.last_h_noises(), axes=([0, 2], [0, 1]))

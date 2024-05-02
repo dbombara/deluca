@@ -1,0 +1,4 @@
+assets
+deluca
+plugin
+scripts
