@@ -37,8 +37,9 @@ def quad_loss(x: jnp.ndarray, u: jnp.ndarray) -> Real:
     Returns:
         Real
     """
-    return jnp.sum(x.T @ x + u.T @ u)
-
+    Q = 500*jnp.eye(2)
+    R = jnp.eye(1)
+    return jnp.sum(x.T @ Q @ x + u.T@ R @ u)
 
 class GPC(Agent):
     def __init__(
@@ -90,6 +91,8 @@ class GPC(Agent):
         # Model Parameters
         # initial linear policy / perturbation contributions / bias
         # TODO: need to address problem of LQR with jax.lax.scan
+        self.Q = Q
+        self.R = R
         self.K = K if K is not None else LQR(self.A, self.B, Q, R).K
 
         self.M = jnp.zeros((H, d_action, d_state))
