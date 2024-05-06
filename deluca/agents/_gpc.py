@@ -166,7 +166,6 @@ class GPC(Agent):
 
         # update state
         self.state = state
-
         self.t += 1
 
     def get_action(self, state: jnp.ndarray) -> jnp.ndarray:
