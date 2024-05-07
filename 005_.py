@@ -16,7 +16,7 @@ from am232 import *
 cost_lr = np.array([])
 learning_rates = np.array([0.000001, 0.00001, 0.00004, 0.00005, 0.00006, 0.00009, 0.0001, 0.0002, 0.0005, 0.001, 0.002])
 
-for lr_test in learning_rates:
+for lr_test in tqdm(learning_rates):
     A, B, dt = double_integrator_dt()
     A_true, B_true, _ = double_integrator_dt(m=1.2, b=0.6, k=6)
     Q, R = 500*jnp.eye(2), jnp.eye(1)

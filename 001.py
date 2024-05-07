@@ -5,9 +5,6 @@ import numpy as np
 from scipy.signal import cont2discrete
 from scipy.signal import square
 import jax.numpy as jnp
-from deluca.agents._gpc import GPC
-from deluca.agents._lqr import LQR
-from tqdm import tqdm
 import matplotlib.pyplot as plt
 from matplotlib import rcParams as rcp
 rcp['font.family'],rcp['font.serif'] = 'serif', ['Computer Modern Roman']
@@ -22,8 +19,6 @@ xv_gpc = nf["xv_gpc"]
 xv_lqr = nf["xv_lqr"]
 cv_gpc = nf["cv_gpc"]
 cv_lqr = nf["cv_lqr"]
-
-
 
 #######################
 fig1, ax1 = plt.subplots(2, 1,  figsize=(6, 6)) # Create a figure and axis for GPC
