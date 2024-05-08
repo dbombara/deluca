@@ -13,6 +13,9 @@ Experiments for square wave
 A, B, dt = double_integrator_dt()
 A_true, B_true, _ = double_integrator_dt(m=1.2, b=0.6, k=6)
 Q, R = 500*jnp.eye(2), jnp.eye(1)
+print(A)
+print("")
+print(B)
 
 # initialize classes
 agpc = GPC(
